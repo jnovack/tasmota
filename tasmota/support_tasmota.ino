@@ -100,7 +100,7 @@ char* GetTopic_P(char *stopic, uint32_t prefix, char *topic, const char* subtopi
     fulltopic += F("/");
     if (fallback) {
       fulltopic += mqtt_client;
-      fulltopic += F("_fb");                  // cmnd/<mqttclient>_fb
+    //   fulltopic += F("_fb");                  // cmnd/<mqttclient>_fb
     } else {
       fulltopic += topic;                     // cmnd/<grouptopic>
     }
