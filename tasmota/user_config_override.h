@@ -87,17 +87,20 @@ Examples :
 
 */
 
+#undef  CODE_IMAGE_STR
+#define CODE_IMAGE_STR         "tasmota-ozmo"    // Version string
+
 #undef  PROJECT
-#define PROJECT                "smartplug"     // project Name
+#define PROJECT                "smartplug"       // Project Name
 
 #undef  WIFI_HOSTNAME
-#define WIFI_HOSTNAME          "%s"
+#define WIFI_HOSTNAME          "%s"              // WiFi Hostname
 
 #undef  MQTT_CLIENT_ID
-#define MQTT_CLIENT_ID         "%12X"       // [MqttClient] Also fall back topic using last 6 characters of MAC address or use "DVES_%12X" for complete MAC address
+#define MQTT_CLIENT_ID         "%12X"            // [MqttClient] Also fall back topic using last 6 characters of MAC address or use "DVES_%12X" for complete MAC address
 
 #undef  MQTT_HOST
-#define MQTT_HOST              "" // [MqttUser] MQTT user
+#define MQTT_HOST              ""                // [MqttUser] MQTT user
 
 #undef  MQTT_USER
 #define MQTT_USER              "MQTT_USER"       // [MqttUser] MQTT user
@@ -106,26 +109,27 @@ Examples :
 #define MQTT_PASS              "MQTT_PASS"       // [MqttPassword] MQTT password
 
 #undef  MQTT_PORT
-#define MQTT_PORT              8883         // [MqttPort] MQTT port (10123 on CloudMQTT)
+#define MQTT_PORT              8883              // [MqttPort] MQTT port (10123 on CloudMQTT)
 
 #undef  MQTT_TLS_ENABLED
-#define MQTT_TLS_ENABLED       true         // [SetOption103] Enable TLS mode (requires TLS version)
+#define MQTT_TLS_ENABLED       true              // [SetOption103] Enable TLS mode (requires TLS version)
 
 #undef  MQTT_TOPIC
-#define MQTT_TOPIC             PROJECT "-%04D"     // [Topic] unique MQTT device topic NOT including (part of) device MAC address
+#define MQTT_TOPIC             PROJECT "-%04D"   // [Topic] unique MQTT device topic NOT including (part of) device MAC address
 
 #undef  MQTT_GRPTOPIC
-#define MQTT_GRPTOPIC          "smartplugs"        // [GroupTopic] MQTT Group topic
+#define MQTT_GRPTOPIC          "smartplugs"      // [GroupTopic] MQTT Group topic
 
 
 // https://pubsubclient.knolleary.net/api.html#state
-#ifndef USE_MQTT_TLS 
+#undef  USE_MQTT_TLS 
 #define USE_MQTT_TLS                             // Use TLS for MQTT connection (+34.5k code, +7.0k mem and +4.8k additional during connection handshake)
+
+#undef  USE_MQTT_TLS_CA_CERT
 #define USE_MQTT_TLS_CA_CERT   
-#endif  // USE_MQTT_TLS
 
 #undef  MDDULE
-#define MODULE                 USER_MODULE      // [Module2] Select default module on fast reboot where USER_MODULE is user template
+#define MODULE                 USER_MODULE       // [Module2] Select default module on fast reboot where USER_MODULE is user template
 
 #undef  USER_TEMPLATE
 #define USER_TEMPLATE          "{\"NAME\":\"AWOW X5P\",\"GPIO\":[0,0,56,0,0,0,0,0,0,17,0,21,0],\"FLAG\":0,\"BASE\":18}"
@@ -134,21 +138,21 @@ Examples :
 #define OTA_URL                "http://files.ozmo.me/tasmota/awow-x5p.bin"  // [OtaUrl]
 
 #undef  MDNS_ENABLED
-#define MDNS_ENABLED           true             // [SetOption55] Use mDNS (false = Disable, true = Enable)
+#define MDNS_ENABLED           true              // [SetOption55] Use mDNS (false = Disable, true = Enable)
 
 #undef  USE_DISCOVERY
-#define USE_DISCOVERY                           // Enable mDNS for the following services (+8k code or +23.5k code with core 2_5_x, +0.3k mem)
+#define USE_DISCOVERY                            // Enable mDNS for the following services (+8k code or +23.5k code with core 2_5_x, +0.3k mem)
 
 #undef  WEBSERVER_ADVERTISE
-#define WEBSERVER_ADVERTISE                     // Provide access to webserver by name <Hostname>.local/
+#define WEBSERVER_ADVERTISE                      // Provide access to webserver by name <Hostname>.local/
 
-#undef MQTT_HOST_DISCOVERY                      // Do not discover MQTT host automatiically
+#undef MQTT_HOST_DISCOVERY                       // Do not discover MQTT host automatiically
 
 // Time Zones
 #undef  TIME_DST_HEMISPHERE
 #define TIME_DST_HEMISPHERE    North             // [TimeDst] Hemisphere (0 or North, 1 or South)
 #undef  TIME_DST_WEEK
-#define TIME_DST_WEEK          Second              // Week of month (0 or Last, 1 or First, 2 or Second, 3 or Third, 4 or Fourth)
+#define TIME_DST_WEEK          Second            // Week of month (0 or Last, 1 or First, 2 or Second, 3 or Third, 4 or Fourth)
 #undef  TIME_DST_DAY
 #define TIME_DST_DAY           Sun               // Day of week (1 or Sun, 2 or Mon, 3 or Tue, 4 or Wed, 5 or Thu, 6 or Fri, 7 or Sat)
 #undef  TIME_DST_MONTH
@@ -156,12 +160,12 @@ Examples :
 #undef  TIME_DST_HOUR
 #define TIME_DST_HOUR          2                 // Hour (0 to 23)
 #undef  TIME_DST_OFFSET
-#define TIME_DST_OFFSET        -240             // Offset from UTC in minutes (-780 to +780)
+#define TIME_DST_OFFSET        -240              // Offset from UTC in minutes (-780 to +780)
 
 #undef  TIME_STD_HEMISPHERE
 #define TIME_STD_HEMISPHERE    North             // [TimeStd] Hemisphere (0 or North, 1 or South)
 #undef  TIME_STD_WEEK
-#define TIME_STD_WEEK          First              // Week of month (0 or Last, 1 or First, 2 or Second, 3 or Third, 4 or Fourth)
+#define TIME_STD_WEEK          First             // Week of month (0 or Last, 1 or First, 2 or Second, 3 or Third, 4 or Fourth)
 #undef  TIME_STD_DAY
 #define TIME_STD_DAY           Sun               // Day of week (1 or Sun, 2 or Mon, 3 or Tue, 4 or Wed, 5 or Thu, 6 or Fri, 7 or Sat)
 #undef  TIME_STD_MONTH
@@ -169,37 +173,37 @@ Examples :
 #undef  TIME_STD_HOUR
 #define TIME_STD_HOUR          3                 // Hour (0 to 23)
 #undef  TIME_STD_OFFSET
-#define TIME_STD_OFFSET        -300             // Offset from UTC in minutes (-780 to +780)
+#define TIME_STD_OFFSET        -300              // Offset from UTC in minutes (-780 to +780)
 
 #undef  APP_TIMEZONE
-#define APP_TIMEZONE           99               // [Timezone] +1 hour (Amsterdam) (-13 .. 14 = hours from UTC, 99 = use TIME_DST/TIME_STD)
+#define APP_TIMEZONE           99                // [Timezone] +1 hour (Amsterdam) (-13 .. 14 = hours from UTC, 99 = use TIME_DST/TIME_STD)
 
 
 // GPS 
 
 #undef  LATITUDE
-#define LATITUDE               40.71            // [Latitude] Your location to be used with sunrise and sunset
+#define LATITUDE               40.71             // [Latitude] Your location to be used with sunrise and sunset
 
 #undef  LONGITUDE
-#define LONGITUDE              -74.01           // [Longitude] Your location to be used with sunrise and sunset
+#define LONGITUDE              -74.01            // [Longitude] Your location to be used with sunrise and sunset
 
-#define USE_PROMETHEUS                          // Turn ON /metrics endpoint
+#define USE_PROMETHEUS                           // Turn ON /metrics endpoint
 
 #undef  NTP_SERVER1
-#define NTP_SERVER1            "pool.ntp.org"   // [NtpServer1] Select first NTP server by name or IP address (129.250.35.250)
+#define NTP_SERVER1            "pool.ntp.org"    // [NtpServer1] Select first NTP server by name or IP address
 #undef  NTP_SERVER2
-#define NTP_SERVER2            "time.apple.com" // [NtpServer2] Select second NTP server by name or IP address (5.39.184.5)
+#define NTP_SERVER2            "time.apple.com"  // [NtpServer2] Select second NTP server by name or IP address
 #undef  NTP_SERVER3
-#define NTP_SERVER3            "clock.psu.edu"  // [NtpServer3] Select third NTP server by name or IP address (93.94.224.67)
+#define NTP_SERVER3            "time.google.com" // [NtpServer3] Select third NTP server by name or IP address
 
 
 #undef  FRIENDLY_NAME 
-#define FRIENDLY_NAME          "AWOW X5P"         // [FriendlyName] Friendlyname up to 32 characters used by webpages and Alexa
+#define FRIENDLY_NAME          "AWOW X5P"        // [FriendlyName] Friendlyname up to 32 characters used by webpages and Alexa
 
 // Disable for custom firmeware
 #undef USE_DOMOTICZ
 #undef USE_HOME_ASSISTANT
-#undef USE_EMULATION_HUE                        // Enable Hue Bridge emulation for Alexa (+14k code, +2k mem common)
+#undef USE_EMULATION_HUE                         // Enable Hue Bridge emulation for Alexa (+14k code, +2k mem common)
 #undef USE_TIMERS
 #undef USE_TIMERS_WEB
 #undef USE_SUNRISE
