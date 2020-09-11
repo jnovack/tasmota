@@ -135,7 +135,7 @@ Examples :
 #define USER_TEMPLATE          "{\"NAME\":\"AWOW X5P\",\"GPIO\":[0,0,56,0,0,0,0,0,0,17,0,21,0],\"FLAG\":0,\"BASE\":18}"
 
 #undef  OTA_URL
-#define OTA_URL                "http://files.ozmo.me/tasmota/awow-x5p.bin"  // [OtaUrl]
+#define OTA_URL                "http://files.ozmonet.com/tasmota/awow-x5p.bin"  // [OtaUrl]
 
 #undef  MDNS_ENABLED
 #define MDNS_ENABLED           true              // [SetOption55] Use mDNS (false = Disable, true = Enable)
